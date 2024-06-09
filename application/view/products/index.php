@@ -93,7 +93,7 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Price:<span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="txtPriceEdit" name="txtPriceEdit" required="required" class="form-control ">
+												<insssput type="text" id="txtPriceEdit" name="txtPriceEdit" required="required" class="form-control ">
 											</div>
 										</div>
 
