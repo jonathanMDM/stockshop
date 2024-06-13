@@ -74,10 +74,9 @@ class mdlProducts
     // Eliminar un producto
     public function deleteProduct($id)
     {
-        $sql = "DELETE  FROM products  WHERE idProduct = ?
+        $sql = "DELETE  FROM products  WHERE idProduct = ?;
         ALTER TABLE products AUTO_INCREMENT = 1;
         ALTER TABLE products AUTO_INCREMENT = 1";
-
         $query = $this->db->prepare($sql);
         $query->bindParam(1, $id);
         return $query->execute();;

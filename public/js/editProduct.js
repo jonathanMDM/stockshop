@@ -22,7 +22,6 @@ function dataProduct(id){
 
 
 function deleteProduct(id){
-    alert(id);
     Swal.fire({
         title:'Would you like to delete user?',
         icon: 'warning',
