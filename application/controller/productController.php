@@ -16,6 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = $this->modelProduct->getProducts();
+        $categories = $this->modelCategory->getCategories();
         require APP . 'view/_templates/header.php';
         require APP . 'view/products/index.php';
         require APP . 'view/_templates/footer.php';
@@ -69,25 +70,25 @@ class ProductController extends Controller
         //vamos a tener el conficional para cuando sea el momento de editar los usuarios
         if(isset($_POST['btnUpdate'])){
             $this->modelProduct->__SET('idProduct', $_POST['txtIdProduct']);
-            $this->modelProduct->__SET('ProductName', $_POST['txtProductName']);
-            $this->modelProduct->__SET('Description', $_POST['txtDescription']);
-            $this->modelProduct->__SET('Price', $_POST['txtPrice']);
-            $this->modelProduct->__SET('Stock', $_POST['txtStock']);
+            $this->modelProduct->__SET('ProductName', $_POST['txtProductNameEdit']);
+            $this->modelProduct->__SET('Description', $_POST['txtDescriptionEdit']);
+            $this->modelProduct->__SET('Price', $_POST['txtPriceEdit']);
+            $this->modelProduct->__SET('Stock', $_POST['txtStockEdit']);
             $this->modelProduct->__SET('idCategory', $_POST['selCategory']);
             
             //variable para actualizar
-            $result = $this->modelProduct->updateProduct();
+            $update = $this->modelProduct->updateProduct();
         }
 
         //crear las variables para llamar a los metos de los modelos
-        $product = $this->modelProduct->getProductById();
-        $categories = $this->modelCategory->getCategories();
+        $user = $this->modelProduct->getProductId();
+        $roles = $this->modelCategory->getCategories();
 
-
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/products/index.php';
-        require APP . 'view/_templates/footer.php';
+        require APP .'view/_templates/header.php';
+        require APP .'view/products/index.php';
+        require APP .'view/_templates/footer.php';
     }
+    
     // Método para eliminar un producto
     public function deleteProduct(){
         //crear una variable para controlar el dato

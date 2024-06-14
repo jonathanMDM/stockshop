@@ -32,7 +32,7 @@ class mdlCategories
     }
 
     // obtener una categoría por su ID
-    public function getCategoryById($id)
+    public function getCategoryId($id)
     {
         $sql = "SELECT * FROM categories WHERE idCategory = ?";
         $stmt = $this->db->prepare($sql);
@@ -51,21 +51,34 @@ class mdlCategories
     }
 
     // actualizar una categoría
-    public function updateCategory()
-    {
-        $sql = "UPDATE categories SET CategoryName = ?, Description = ? WHERE idCategory = ?";
-        $stmt = $this->db->prepare($sql);
-        return $stmt->execute([
-            $this->CategoryName, 
-            $this->Description, 
-            $this->idCategory]);
+    public function updateProduct()
+{
+    $sql = "UPDATE products SET ProductName = ?, Description = ?, Price = ?, Stock = ?, idCategory = ? WHERE idProduct = ?";
+    $stmt = $this->db->prepare($sql);
+    $result = $stmt->execute([
+        $this->ProductName,
+        $this->Description,
+        $this->Price,
+        $this->Stock,
+        $this->idCategory,
+        $this->idProduct
+    ]);
+
+    if ($result) {
+        return true;
+    } else {
+        $error = $stmt->errorInfo();
+        var_dump($error); // Imprime el error para diagnóstico
+        return false;
     }
+}
+
 
     //  eliminar una categoría
-    public function deleteCategory($id)
+    public function deleteCategory()
     {
         $sql = "DELETE FROM categories WHERE idCategory = ?";
         $stmt = $this->db->prepare($sql);
-        return $stmt->execute([$id]);
+        return $stmt->execute();
     }
 }

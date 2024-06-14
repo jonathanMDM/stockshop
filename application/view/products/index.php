@@ -2,7 +2,7 @@
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Default Example <small>Users</small></h2>
+                    <h2>View<small>Product</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -23,7 +23,7 @@
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
                             <h1>Products</h1>
-                                    <button class="btn btn-success btn-xs"><a href="<?php echo URL; ?>ProductController/create">Add New Product</a></button>
+                                    <button class="btn btn-success btn-xs "><a style="color: #fff;" href="<?php echo URL; ?>ProductController/create">Add New Product</a></button>
                                 <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                     <tr>
@@ -65,7 +65,7 @@
                         <div class="modal-content">
 
                             <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            <h4 class="modal-title" id="myModalLabel">Update product</h4>
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                             </button>
                             </div>
@@ -85,7 +85,7 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Description:<span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="txtDescriptionEdit" name="txtDescriptionEdit" required="required" class="form-control ">
+                                                <textarea name="txtDescriptionEdit" id="txtDescriptionEdit"><?php echo $product->Description; ?></textarea>
 											</div>
 										</div>
 
@@ -109,9 +109,9 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="selCategory">Category:</label>
 											<div class="col-md-6 col-sm-6 ">
 												<select class="form-control" name="selCategory" id="selCategory" required>
-													<?php foreach($categories as $category): ?>
-                                                        <option required="required" value="<?php echo $category['idCategory'];?>"><?php echo $category['CategoryName']?></option>
-													<?php endforeach; ?>
+                                                <?php foreach ($categories as $category): ?>
+                                                    <option value="<?php echo $category['idCategory']; ?>"><?php echo $category['CategoryName']; ?></option>
+                                                <?php endforeach; ?>
 												</select>
 											</div>
 										</div>

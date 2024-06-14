@@ -1,24 +1,26 @@
 
-function dataProduct(id){
-    alert(id);
+function dataProduct(id) {
+    alert("ID del producto: " + id);
     $.ajax({
         url: url + "productController/dataProduct",
         type: "post",
         dataType: "json",
-        data: {'id':id,}
-    }).done(function(answer){
-        $.each(answer, function(index, value){
+        data: { 'id': id }
+    }).done(function(answer) {
+        console.log(answer); // Verificar los datos recibidos
+        $.each(answer, function(index, value) {
             $('#txtIdProduct').val(value.idProduct);
             $('#txtProductNameEdit').val(value.ProductName);
             $('#txtDescriptionEdit').val(value.Description);
             $('#txtPriceEdit').val(value.Price);
             $('#txtStockEdit').val(value.Stock);
             $('#selCategory').val(value.idCategory);
-        })
-    }).fail(function(error){
+        });
+    }).fail(function(error) {
         console.log(error);
-    })
+    });
 }
+
 
 
 function deleteProduct(id){

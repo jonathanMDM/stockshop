@@ -59,17 +59,28 @@ class mdlProducts
 
     // actualizar un producto
     public function updateProduct()
-    {
-        $sql = "UPDATE products SET ProductName = ?, Description = ?, Price = ?, Stock = ?, idCategory = ? WHERE idProduct = ?";
-        $stmt = $this->db->prepare($sql);
-        return $stmt->execute([
-            $this->ProductName,
-            $this->Description,
-            $this->Price, 
-            $this->Stock, 
-            $this->idCategory, 
-            $this->idProduct]);
-    }
+        {  
+            $sql = "UPDATE products AS P 
+                    INNER JOIN categories AS C ON P.idCategory = C.idCategory 
+                    SET 
+                        P.ProductName = ?, 
+                        P.Description = ?, 
+                        P.Price = ?, 
+                        P.Stock = ?, 
+                        P.idCategory = ?
+                    WHERE P.idProduct = ?";
+
+            $stm = $this->db->prepare($sql);
+            $stm->bindParam(1, $this->ProductName);
+            $stm->bindParam(2, $this->Description);
+            $stm->bindParam(3, $this->Price);
+            $stm->bindParam(4, $this->Stock);
+            $stm->bindParam(5, $this->idCategory);
+            //Respuesta
+            $result = $stm->execute();
+            return $result;
+        }
+
 
     // Eliminar un producto
     public function deleteProduct($id)
