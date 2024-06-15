@@ -11,7 +11,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>SoftInver</title>
+  <title>StockShop</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
@@ -36,7 +36,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container">
           <a class="navbar-brand" href="index.html">
             <span>
-            SoftInver
+            StockShop
             </span>
           </a>
 
@@ -78,6 +78,7 @@
                 <a href="index.html">Inicio</a>
                 <a href="team.html">Equipo</a>
                 <a href="portfolio.html">Portafolio</a>
+                
 
                 <a href="contact.html">Contacto</a>
 
@@ -172,7 +173,7 @@
   <section class="about_section layout_padding">
     <div class="container">
       <h2>
-        SOFTINVER
+        StockShop
       </h2>
       <p>
       Bienvenido a nuestro Sistema de Inventario Inteligente, la solución perfecta para gestionar tus productos de manera eficiente y efectiva
