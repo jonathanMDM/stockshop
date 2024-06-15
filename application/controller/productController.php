@@ -101,4 +101,10 @@ class ProductController extends Controller
         $data = $this->modelProduct->getProductId($_POST['id']);
         echo json_encode($data);
     }
+
+    public function viewProducts(){
+        require APP .'view/_templates/header.php';
+        require APP .'view/products/viewProducts.php';
+        require APP .'view/_templates/footer.php';
+    }
 }

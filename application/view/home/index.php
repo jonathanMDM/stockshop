@@ -49,9 +49,9 @@
                     <span >Iniciar</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="service.html">
-                    <img src="<?php echo URL; ?>html/images/signup.png" alt="" />
-                    <span>Sign Up</span>
+                  <a class="nav-link" href="<?php echo URL;?>userController/login">
+                    <img src="<?php echo URL; ?>html/images/buy.png" alt="" />
+                    <span>COMPRA AHORA!!</span>
                   </a>
                 </li>
               </ul>
