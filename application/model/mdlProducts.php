@@ -47,14 +47,15 @@ class mdlProducts
     //Guardar un nuevo producto
     public function saveProduct()
     {
-        $sql = "INSERT INTO products (ProductName, Description, Price, Stock, idCategory) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO products (ProductName, Description, Price, Stock, idCategory, productImg) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
-        return $stmt->execute([
-            $this->ProductName, 
-            $this->Description, 
-            $this->Price, 
-            $this->Stock, 
-            $this->idCategory]);
+        $stmt->bindParam(1, $this->ProductName);
+        $stmt->bindParam(2, $this->Description);
+        $stmt->bindParam(3, $this->Price);
+        $stmt->bindParam(4, $this->Stock);
+        $stmt->bindParam(5, $this->idCategory);
+        $stmt->bindParam(6, $this->productImg);
+        return $stmt->execute();
     }
 
     // actualizar un producto
@@ -62,14 +63,13 @@ class mdlProducts
     {
         $sql = "UPDATE products SET ProductName = ?, Description = ?, Price = ?, Stock = ?, idCategory = ? WHERE idProduct = ?";
         $stmt = $this->db->prepare($sql);
-        return $stmt->execute([
-            $this->ProductName,
-            $this->Description,
-            $this->Price,
-            $this->Stock,
-            $this->idCategory,
-            $this->idProduct
-        ]);
+        $stmt->bindParam(1, $this->ProductName);
+        $stmt->bindParam(2, $this->Description);
+        $stmt->bindParam(3, $this->Price);
+        $stmt->bindParam(4, $this->Stock);
+        $stmt->bindParam(5, $this->idCategory);
+        $stmt->bindParam(7, $this->idProduct);
+        return $stmt->execute();
     }
 
 

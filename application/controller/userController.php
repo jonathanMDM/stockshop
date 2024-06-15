@@ -158,6 +158,26 @@
             
             //variable para actualizar
             $update = $this->modelU->updateUser();
+
+            if($update == true){
+                $_SESSION['alert']= "Swal.fire({
+                    position: '',
+                    icon: 'success',
+                    title: 'Done',
+                    showConfirmButton: false,
+                    timer: 1500})";   
+                    header("Location:" .URL. "userController/getUsers"); 
+                    exit();   
+            }else{
+                $_SESSION['alert']= "Swal.fire({
+                    position: '',
+                    icon: 'error',
+                    title: 'Error',
+                    showConfirmButton: false,
+                    timer: 1500})";   
+                    header("Location:" .URL. "userController/getUsers"); 
+                    exit();
+            }
         }
 
         //crear las variables para llamar a los metos de los modelos

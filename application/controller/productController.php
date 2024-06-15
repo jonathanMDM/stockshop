@@ -39,7 +39,9 @@ class ProductController extends Controller
             $this->modelProduct->__SET('Description', $_POST['txtDescription']);
             $this->modelProduct->__SET('Price', $_POST['txtPrice']);
             $this->modelProduct->__SET('Stock', $_POST['txtStock']);
-            $this->modelProduct->__SET('idCategory', $_POST['selCategory']);
+            $this->modelProduct->__SET('idCategory', $_POST['selCategory']);        
+            $this->modelProduct->__SET('productImg', file_get_contents($_FILES['txtProductImg']['tmp_name']));
+            
 
             $result = $this->modelProduct->saveProduct();
 
@@ -66,37 +68,38 @@ class ProductController extends Controller
         }
     }
 
+
     public function updateProduct(){
-        if (isset($_POST['btnUpdate'])){
-            $this->modelProduct->__SET('idProduct', $_POST['txtIdProduct']);
+
+        if(isset($_POST['btnUpdate'])){
             $this->modelProduct->__SET('ProductName', $_POST['txtProductNameEdit']);
             $this->modelProduct->__SET('Description', $_POST['txtDescriptionEdit']);
             $this->modelProduct->__SET('Price', $_POST['txtPriceEdit']);
             $this->modelProduct->__SET('Stock', $_POST['txtStockEdit']);
             $this->modelProduct->__SET('idCategory', $_POST['selCategory']);
-    
+            $this->modelProduct->__SET('idProduct', $_POST['txtIdProduct']);
+        
             $result = $this->modelProduct->updateProduct();
-    
-            if ($result) {
-                $_SESSION['alert'] = "Swal.fire({
+
+            if($result == true){
+                $_SESSION['alert']= "Swal.fire({
                     position: '',
                     icon: 'success',
-                    title: 'Producto actualizado',
+                    title: 'Done',
                     showConfirmButton: false,
-                    timer: 1500
-                })";
-            } else {
-                $_SESSION['alert'] = "Swal.fire({
+                    timer: 1500})";   
+                    header("Location:" .URL. "Controller/getUsers"); 
+                    exit();   
+            }else{
+                $_SESSION['alert']= "Swal.fire({
                     position: '',
                     icon: 'error',
-                    title: 'Error al actualizar producto',
+                    title: 'Error',
                     showConfirmButton: false,
-                    timer: 1500
-                })";
+                    timer: 1500})";   
+                    header("Location:" .URL. "userController/getUsers"); 
+                    exit();
             }
-    
-            header("Location: " . URL . "ProductController/index");
-            exit();
         }
     
         $product = $this->modelProduct->getProductId($_POST['id']);

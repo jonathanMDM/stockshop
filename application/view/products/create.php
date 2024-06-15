@@ -22,7 +22,7 @@
 								</div>
 								<div class="x_content">
 									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="<?php echo URL; ?>productController/store" method="post">
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="<?php echo URL; ?>productController/store" method="post" enctype="multipart/form-data">
 
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="txtProductName">Product Name:<span class="required">*</span>
@@ -55,6 +55,16 @@
 												<input type="number" id="txtStock" name="txtStock" required="required" class="form-control">
 											</div>
 										</div>
+
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="txtStock">Imagen: <span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<input type="file" id="txtProductImg" name="txtProductImg" required="required" class="form-control">
+											</div>
+										</div>
+
+										
 										
 										<div class="form-group row">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="selCategory">Category:</label>
