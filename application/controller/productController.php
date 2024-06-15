@@ -128,4 +128,16 @@ class ProductController extends Controller
         require APP .'view/sells/viewProducts.php';
         require APP .'view/_templates/footer.php';
     }
+
+    public function shopCar(){
+        require APP .'view/_templates/header.php';
+        require APP .'view/sells/shopCar.php';
+        require APP .'view/_templates/footer.php'; 
+    }
+
+
+    public function viewProductsUsers(){
+        require APP .'view/sells/viewProductsUsers.php';
+    }
+    
 }

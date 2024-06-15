@@ -238,7 +238,7 @@
             $_SESSION['RolDescription'] = $validate['RolDescription'];
 
             //despues de la validacion cargar la vista del admin
-            header("Location:" . URL ."userController/mainUsers");
+            header("Location:" . URL ."productController/viewProductsUsers");
         }else{
             $error = true;
         }
