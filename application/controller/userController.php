@@ -59,6 +59,12 @@
         require APP .'view/_templates/footer.php';
     }
 
+    public function mainUsers(){
+        require APP .'view/_templates/headerUsers.php';
+        require APP .'view/products/viewProducts.php';
+        require APP .'view/_templates/footer.php';
+    }
+
     //metodo para cerra la session
     public function closeSession(){
         if(isset($_SESSION['SESSION_START'])){
@@ -182,4 +188,42 @@
         $Stat = $this->modelU->deleteUser($_POST['id']);
         echo 1;
     }
+
+    public function loginUserOnly(){
+        //para llamar al login uso la constante APP y la función reuire de php
+        //esta variable nos va a permiritr captuarar todos los errores
+        $error = false;
+
+        //vamos a validar los datos que venga del modelo y del formulario
+        if(isset($_POST['btnLogin'])){
+            $this->modelU->__SET('username', $_POST['txtUser']);
+            $this->modelU->__SET('password', $_POST['txtpassword']);
+            //guardar en un arreglo vacio
+            $_POST=[];
+
+            //con una variable vamos a llamar el metodo de validación del modelo
+            $validate = $this->modelU->validateUserOnly();
+
+            if($validate == true){
+            $_SESSION['SESSION_START'] = true;
+
+            $error = false;
+
+            //comunicamos modelo con formulario
+            $_SESSION['Names'] = $validate['Names'];
+            $_SESSION['idUser'] = $validate['idUser'];
+            $_SESSION['Lastname'] = $validate['Lastname'];
+            $_SESSION['Document'] = $validate['Document'];
+            $_SESSION['Username'] = $validate['Username'];
+            $_SESSION['RolDescription'] = $validate['RolDescription'];
+
+            //despues de la validacion cargar la vista del admin
+            header("Location:" . URL ."userController/mainUsers");
+        }else{
+            $error = true;
+        }
+        
+    }
+    require APP . 'view/users/login.php';
+}
 }
