@@ -20,6 +20,7 @@
     <script src="<?php echo URL;?>js/sweetalert2.min.js"></script>
     <script src="<?php echo URL;?>js/editUsers.js"></script>
     <script src="<?php echo URL;?>js/editProduct.js"></script>
+    <script src="<?php echo URL;?>js/editSupplier.js"></script>
 
     <script>
         $(document).ready(function(){

@@ -50,30 +50,6 @@ class mdlCategories
             $this->Description]);
     }
 
-    // actualizar una categoría
-    public function updateProduct()
-{
-    $sql = "UPDATE products SET ProductName = ?, Description = ?, Price = ?, Stock = ?, idCategory = ? WHERE idProduct = ?";
-    $stmt = $this->db->prepare($sql);
-    $result = $stmt->execute([
-        $this->ProductName,
-        $this->Description,
-        $this->Price,
-        $this->Stock,
-        $this->idCategory,
-        $this->idProduct
-    ]);
-
-    if ($result) {
-        return true;
-    } else {
-        $error = $stmt->errorInfo();
-        var_dump($error); // Imprime el error para diagnóstico
-        return false;
-    }
-}
-
-
     //  eliminar una categoría
     public function deleteCategory()
     {

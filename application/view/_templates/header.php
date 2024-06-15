@@ -81,6 +81,12 @@
                         <li><a href="<?php echo URL;?>productController/index">View Products</a></li>
                         </ul>
                     </li>
+                    <li><a><i class="fa fa-box"></i> Manage Suppliers <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                        <li><a href="<?php echo URL;?>suppliersController/create">Suppliers Register</a></li>
+                        <li><a href="<?php echo URL;?>suppliersController/index">View Suppliers</a></li>
+                        </ul>
+                    </li>
                     <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                         <li><a href="form.html">General Form</a></li>
