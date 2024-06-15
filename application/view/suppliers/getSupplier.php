@@ -2,7 +2,7 @@
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>View<small>Product</small></h2>
+                    <h2>View<small>Suppliers</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -23,31 +23,33 @@
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
                             <h1>Products</h1>
-                                    <button class="btn btn-success btn-xs "><a style="color: #fff;" href="<?php echo URL; ?>ProductController/create">Add New Product</a></button>
+                                    <button class="btn btn-success btn-xs "><a style="color: #fff;" href="<?php echo URL; ?>SupplierController/create">Add New Supplier</a></button>
                                 <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                        <th>Price</th>
-                                        <th>Stock</th>
-                                        <th>Category</th>
-                                        <th>Actions</th>
+                                        <th>Supplier Name</th>
+                                        <th>Contac Name</th>
+                                        <th>Contac Phone</th>
+                                        <th>Contac Email</th>
+                                        <th>Address</th>
+                                        <th>Options</th>
                                     </tr>
                                     </thead>                                        
                                     <tbody>
-                                    <?php foreach ($products as $product): ?>
-                                            <td><?php echo $product['idProduct'];?></td>
-                                            <td><?php echo $product['ProductName'];?></td>
-                                            <td><?php echo $product['Description'];?></td>
-                                            <td><?php echo $product['Price'];?></td>
-                                            <td><?php echo $product['Stock'];?></td>
-                                            <td><?php echo $product['CategoryName'];?></td>
+                                    <?php foreach ($suppliers as $supplier): ?>
+                                            <td><?php echo $supplier['idSupplier'];?></td>
+                                            <td><?php echo $supplier['SupplierName'];?></td>
+                                            <td><?php echo $supplier['ContactName'];?></td>
+                                            <td><?php echo $supplier['ContactPhone'];?></td>
+                                            <td><?php echo $supplier['ContactEmail'];?></td>
+                                            <td><?php echo $supplier['Address'];?></td>
+                                            
                                             <td>
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-edit" onclick="dataProduct('<?php echo $product['idProduct'];?>')"><i class="fa fa-edit" ></i></button>
-                                                <button type="button" class="btn btn-danger btn-xs" onclick="deleteProduct('<?php echo $product['idProduct'];?>')"><i class="fa fa-trash"></i></button>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-edit" onclick="dataSupplier('<?php echo $supplier['idSupplier'];?>')"><i class="fa fa-edit" ></i></button>
+                                                <button type="button" class="btn btn-danger btn-xs" onclick="deleteSupplier('<?php echo $supplier['idSupplier'];?>')"><i class="fa fa-trash"></i></button>
                                             </td>
+                                                
                                         </tr>
                                     <?php endforeach;?>
                                     </tbody>
@@ -64,49 +66,45 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Update product</h4>
+                <h4 class="modal-title" id="myModalLabel">Update Suppliers</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-                <form method="post" action="<?php echo URL; ?>ProductController/updateProduct">
-                    <input type="hidden" name="txtIdProduct" id="txtIdProduct">
+                <form method="post" action="<?php echo URL; ?>suppliersController/updateSupplier">
+                    <input type="hidden" name="txtidSupplier" id="txtidSupplier">
 
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Name:<span class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Supplier Name:<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" id="txtProductNameEdit" name="txtProductNameEdit" required="required" class="form-control ">
+                            <input type="text" id="txtSupplierName" name="txtSupplierName" required="required" class="form-control ">
                         </div>
                     </div>
 
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Description:<span class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Contact Name:<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 ">
-                            <textarea name="txtDescriptionEdit" id="txtDescriptionEdit" class="form-control"></textarea>
+                        <input type="text" id="txtContactName" name="txtContactName" required="required" class="form-control ">
                         </div>
                     </div>
 
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Price:<span class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Phone:<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" id="txtPriceEdit" name="txtPriceEdit" required="required" class="form-control ">
+                            <input type="text" id="txtContactPhone" name="txtContactPhone" required="required" class="form-control ">
                         </div>
                     </div>
 
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Stock:<span class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Email:<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" id="txtStockEdit" name="txtStockEdit" required="required" class="form-control ">
+                            <input type="email" id="txtContactEmail" name="txtContactEmail" required="required" class="form-control ">
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Category:</label>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Address:<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 ">
-                            <select class="form-control" name="selCategory" id="selCategory" required>
-                                <?php foreach ($categories as $category): ?>
-                                    <option value="<?php echo $category['idCategory']; ?>"><?php echo $category['CategoryName']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                            <input type="text" id="Address" name="Address" required="required" class="form-control ">
                         </div>
                     </div>
 

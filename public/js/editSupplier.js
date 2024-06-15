@@ -1,19 +1,20 @@
 
-function dataProduct(id) {
+function dataSupplier(id) {
+    alert(id);
     $.ajax({
-        url: url + "ProductController/dataProduct",
+        url: url + "suppliersController/dataSupplier",
         type: "post",
         dataType: "json",
         data: { 'id': id }
     }).done(function(answer) {
         console.log(answer); // Verificar los datos recibidos
         $.each(answer, function(index, value) {
-            $('#txtIdProduct').val(value.idProduct);
-            $('#txtProductNameEdit').val(value.ProductName);
-            $('#txtDescriptionEdit').val(value.Description);
-            $('#txtPriceEdit').val(value.Price);
-            $('#txtStockEdit').val(value.Stock);
-            $('#selCategory').val(value.idCategory);
+            $('#txtidSupplier').val(value.idSupplier);
+            $('#txtSupplierName').val(value.SupplierName);
+            $('#txtContactName').val(value.ContactName);
+            $('#txtContactPhone').val(value.ContactPhone);
+            $('#txtContactEmail').val(value.ContactEmail);
+            $('#Address').val(value.Address);
         });
     }).fail(function(error) {
         console.log(error);
@@ -22,7 +23,8 @@ function dataProduct(id) {
 
 
 
-function deleteProduct(id){
+function deleteSupplier(id){
+    alert(id);
     Swal.fire({
         title:'Would you like to delete user?',
         icon: 'warning',
@@ -42,11 +44,11 @@ function deleteProduct(id){
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "post",
-                        url: url + "productController/deleteProduct",
+                        url: url + "suppliersController/deleteSupplier",
                         data: {'id':id,}
                     }).done(function(answer){
                         if (answer == 1) {
-                            window.location = url + "productController/index";
+                            window.location = url + "suppliersController/index";
                             window.reload();
                         }else{
                             Swal.fire('Wrong to delte users', '', 'error');
