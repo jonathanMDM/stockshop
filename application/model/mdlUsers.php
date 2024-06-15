@@ -133,4 +133,22 @@
             $result = $stm->execute();
             return $result;
         }
+
+        public function validateUserOnly(){
+            //consulta
+            $sql = "SELECT P.Document,P.Names,p.Lastname,U.idUser,U.Username,U.PASSWORD,R.RolDescription FROM people P 
+            inner join typeDocuments TD on P.idTypeDocument=TD.idTypeDocument
+            inner join users U on P.idPerson = U.idPerson 
+            inner join roles R on U.idRol = R.idRol WHERE U.Username = ? and U.PASSWORD = ? and U.stat = 1 and R.idRol = 2";
+    
+    
+            $stm = $this->db->prepare($sql);
+            $stm->bindParam(1, $this->username);
+            $stm->bindParam(2, $this->password);
+            $stm->execute();
+    
+           //retornar datos 
+            $user = $stm->fetch(PDO::FETCH_ASSOC);
+            return $user;
+            }
 }

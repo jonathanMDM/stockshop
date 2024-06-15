@@ -103,8 +103,8 @@ class ProductController extends Controller
     }
 
     public function viewProducts(){
-        require APP .'view/_templates/header.php';
+        require APP .'view/_templates/headerUsers.php';
         require APP .'view/products/viewProducts.php';
-        require APP .'view/_templates/footer.php';
+        require APP .'view/_templates/footerUsers.php';
     }
 }
