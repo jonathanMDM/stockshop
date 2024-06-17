@@ -49,7 +49,7 @@
                     <span >Iniciar</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo URL;?>userController/login">
+                  <a class="nav-link" href="<?php echo URL;?>userController/loginUserOnly">
                     <img src="<?php echo URL; ?>html/images/buy.png" alt="" />
                     <span>COMPRA AHORA!!</span>
                   </a>
