@@ -54,7 +54,7 @@
                       </div>
                       <div class="col-12">
                         <div class="d-grid">
-                          <button class="btn btn-primary btn-lg" type="submit" name="btnLogin">Log in</button>
+                          <button class="btn btn-primary btn-lg" type="submit" name="btnLoginUsers">Log in</button>
                         </div>
                       </div>
                     </div>

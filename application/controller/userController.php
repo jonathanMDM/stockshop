@@ -215,7 +215,7 @@
         $error = false;
 
         //vamos a validar los datos que venga del modelo y del formulario
-        if(isset($_POST['btnLogin'])){
+        if(isset($_POST['btnLoginUsers'])){
             $this->modelU->__SET('username', $_POST['txtUser']);
             $this->modelU->__SET('password', $_POST['txtpassword']);
             //guardar en un arreglo vacio
@@ -244,6 +244,6 @@
         }
         
     }
-    require APP . 'view/users/login.php';
+    require APP . 'view/users/loginUsers.php';
 }
 }
