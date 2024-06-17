@@ -46,7 +46,7 @@ class suppliersController extends Controller
                 $_SESSION['alert'] = "Swal.fire({
                     position: '',
                     icon: 'success',
-                    title: 'Proveedor guardado',
+                    title: 'Done',
                     showConfirmButton: false,
                     timer: 1500
                 })";
@@ -54,7 +54,7 @@ class suppliersController extends Controller
                 $_SESSION['alert'] = "Swal.fire({
                     position: '',
                     icon: 'error',
-                    title: 'Error al guardar proveedor',
+                    title: 'Error',
                     showConfirmButton: false,
                     timer: 1500
                 })";
@@ -93,7 +93,7 @@ class suppliersController extends Controller
                 $_SESSION['alert'] = "Swal.fire({
                     position: '',
                     icon: 'success',
-                    title: 'Proveedor actualizado',
+                    title: 'Done',
                     showConfirmButton: false,
                     timer: 1500
                 })";
@@ -101,7 +101,7 @@ class suppliersController extends Controller
                 $_SESSION['alert'] = "Swal.fire({
                     position: '',
                     icon: 'error',
-                    title: 'Error al actualizar proveedor',
+                    title: 'Error',
                     showConfirmButton: false,
                     timer: 1500
                 })";

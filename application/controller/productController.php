@@ -39,8 +39,7 @@ class ProductController extends Controller
             $this->modelProduct->__SET('Description', $_POST['txtDescription']);
             $this->modelProduct->__SET('Price', $_POST['txtPrice']);
             $this->modelProduct->__SET('Stock', $_POST['txtStock']);
-            $this->modelProduct->__SET('idCategory', $_POST['selCategory']);        
-            $this->modelProduct->__SET('productImg', file_get_contents($_FILES['txtProductImg']['tmp_name']));
+            $this->modelProduct->__SET('idCategory', $_POST['selCategory']);
             
 
             $result = $this->modelProduct->saveProduct();
@@ -49,7 +48,7 @@ class ProductController extends Controller
                 $_SESSION['alert'] = "Swal.fire({
                     position: '',
                     icon: 'success',
-                    title: 'Producto guardado',
+                    title: 'Donne',
                     showConfirmButton: false,
                     timer: 1500
                 })";
@@ -57,7 +56,7 @@ class ProductController extends Controller
                 $_SESSION['alert'] = "Swal.fire({
                     position: '',
                     icon: 'error',
-                    title: 'Error al guardar producto',
+                    title: 'Error',
                     showConfirmButton: false,
                     timer: 1500
                 })";
@@ -88,7 +87,7 @@ class ProductController extends Controller
                     title: 'Done',
                     showConfirmButton: false,
                     timer: 1500})";   
-                    header("Location:" .URL. "Controller/getUsers"); 
+                    header("Location:" .URL. "productController/index"); 
                     exit();   
             }else{
                 $_SESSION['alert']= "Swal.fire({
@@ -97,7 +96,7 @@ class ProductController extends Controller
                     title: 'Error',
                     showConfirmButton: false,
                     timer: 1500})";   
-                    header("Location:" .URL. "userController/getUsers"); 
+                    header("Location:" .URL. "productController/index"); 
                     exit();
             }
         }

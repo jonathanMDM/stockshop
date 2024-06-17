@@ -27,7 +27,6 @@
                                 <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                     <tr>
-                                        <th>Imagen</th>
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Description</th>
@@ -39,9 +38,6 @@
                                     </thead>                                        
                                     <tbody>
                                     <?php foreach ($products as $product): ?>
-                                            <td>
-                                                <img height= "100px" width = "100px" src="data:image/jpg; base64,<?php echo base64_encode($product['productImg']);?>" alt = "No tiene Imagen">
-                                            </td>
                                             <td><?php echo $product['idProduct'];?></td>
                                             <td><?php echo $product['ProductName'];?></td>
                                             <td><?php echo $product['Description'];?></td>

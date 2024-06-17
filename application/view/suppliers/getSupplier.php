@@ -23,7 +23,7 @@
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
                             <h1>Products</h1>
-                                    <button class="btn btn-success btn-xs "><a style="color: #fff;" href="<?php echo URL; ?>SupplierController/create">Add New Supplier</a></button>
+                                    <button class="btn btn-success btn-xs "><a style="color: #fff;" href="<?php echo URL; ?>suppliersController/create">Add New Supplier</a></button>
                                 <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                     <tr>

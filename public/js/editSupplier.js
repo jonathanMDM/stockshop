@@ -1,6 +1,5 @@
 
 function dataSupplier(id) {
-    alert(id);
     $.ajax({
         url: url + "suppliersController/dataSupplier",
         type: "post",
@@ -24,7 +23,6 @@ function dataSupplier(id) {
 
 
 function deleteSupplier(id){
-    alert(id);
     Swal.fire({
         title:'Would you like to delete user?',
         icon: 'warning',

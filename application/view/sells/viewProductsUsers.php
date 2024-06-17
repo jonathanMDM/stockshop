@@ -66,7 +66,7 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Fancy Product</h5>
+                                    <h5 class="fw-bolder"></h5>
                                     <!-- Product price-->
                                     $40.00 - $80.00
                                 </div>
