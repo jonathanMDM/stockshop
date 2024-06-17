@@ -137,4 +137,7 @@ class ProductController extends Controller
         require APP .'view/sells/viewProductsUsers.php';
     }
     
+    public function shopCarUser(){
+        require APP .'view/sells/shopCarUsers.php';
+    }
 }
