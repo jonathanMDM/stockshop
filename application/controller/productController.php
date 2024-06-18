@@ -142,6 +142,7 @@ class ProductController extends Controller
     
     
     public function shopCarUser(){
+        $products = $this->modelProduct->getProducts();
         require APP .'view/sells/shopCarUsers.php';
     }
 }

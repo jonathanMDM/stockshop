@@ -67,10 +67,10 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <!-- Product name-->
-                                        <h5 class="fw-bolder"><?php echo $product['ProductName']; ?></h5>
-                                        <p class="fw-bolder"><?php echo $product['Description']; ?></p>
+                                        <h4 class="fw-bolder"><?php echo $product['ProductName']; ?></h4>
+                                        <p><?php echo $product['Description']; ?></p>
                                         <!-- Product price-->
-                                        <?php echo $product['Price']; ?>
+                                        <h6><?php echo $product['Price']; ?></h6>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
