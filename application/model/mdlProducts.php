@@ -9,6 +9,7 @@ class mdlProducts
     private $Stock;
     private $idCategory;
     private $idProduct;
+    private $productImg;
 
     public function __construct($db)
     {
@@ -47,13 +48,14 @@ class mdlProducts
     //Guardar un nuevo producto
     public function saveProduct()
     {
-        $sql = "INSERT INTO products (ProductName, Description, Price, Stock, idCategory ) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO products (ProductName, Description, Price, Stock, idCategory, productImg ) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(1, $this->ProductName);
         $stmt->bindParam(2, $this->Description);
         $stmt->bindParam(3, $this->Price);
         $stmt->bindParam(4, $this->Stock);
         $stmt->bindParam(5, $this->idCategory);
+        $stmt->bindParam(6, $this->productImg);
         return $stmt->execute();
     }
 

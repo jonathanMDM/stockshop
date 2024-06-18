@@ -35,9 +35,7 @@
                     </ul>
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <a href="<?php echo URL;?>userController/closeSession"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                         </button>
                     </form>
                 </div>
@@ -48,7 +46,7 @@
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
                 <?php foreach ($products as $product): ?>
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                    <img height= "200px" width = "200px" src="data:image/jpg; base64,<?php echo base64_encode($product['productImg']);?>" alt = "No tiene Imagen">
                     <div class="col-md-6">
                         <div class="small mb-1">Ref:<?php echo $product['idProduct'];?></div>
                         <h1 class="display-5 fw-bolder"><?php echo $product['ProductName']; ?></h1>

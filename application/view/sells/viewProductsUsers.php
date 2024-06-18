@@ -37,9 +37,7 @@
                     
                     
                         <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <a href="<?php echo URL;?>userController/closeSession"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                         </button>
                     </a>
                     </form> 
@@ -63,21 +61,21 @@
                         <div class="col mb-5">
                             <div class="card h-100">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                                <img height= "200px" width = "200px" src="data:image/jpg; base64,<?php echo base64_encode($product['productImg']);?>" alt = "No tiene Imagen">
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
-                                    <p>Ref:<?php echo $product['idProduct'];?></p>
+                                    <p>Ref: <?php echo $product['idProduct'];?></p>
                                         <!-- Product name-->
                                         <h4 class="fw-bolder"><?php echo $product['ProductName']; ?></h4>
                                         <p><?php echo $product['Description']; ?></p>
                                         <!-- Product price-->
-                                        <h6><?php echo $product['Price']; ?></h6>
+                                        <h6><?php echo $product['Price']; ?>$</h6>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?php echo URL;?>productController/shopCarUser">View options</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" name="btnShop">View Product</a></div>
                                 </div>
                             </div>
                         </div>
