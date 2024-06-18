@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Shop Item - Start Bootstrap Template</title>
+        <title>StockShop</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="<?php echo URL; ?>assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -17,7 +17,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                <a class="navbar-brand" href="#!">StockShop</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -47,16 +47,16 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                <?php ($products); ?>
+                <?php foreach ($products as $product): ?>
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
                     <div class="col-md-6">
-                        <div class="small mb-1">SKU: BST-498</div>
-                        <h1 class="display-5 fw-bolder"><?php echo $products['ProductName']; ?></h1>
+                        <div class="small mb-1">Ref:<?php echo $product['idProduct'];?></div>
+                        <h1 class="display-5 fw-bolder"><?php echo $product['ProductName']; ?></h1>
                         <div class="fs-5 mb-5">
-                            <span class="text-decoration-line-through">$45.00</span>
-                            <span>$40.00</span>
+                            <span class="text-decoration-line-through"></span>
+                            <span><?php echo $product['Price']; ?></span>
                         </div>
-                        <p class="lead"><?php echo $products ['Description']; ?></p>
+                        <p class="lead"><?php echo $product['Description']; ?></p>
                         <div class="d-flex">
                             <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">
@@ -65,7 +65,7 @@
                             </button>
                         </div>
                     </div>
-                    <?php  ?>
+                    <?php endforeach;?>>
                 </div>
             </div>
         </section>

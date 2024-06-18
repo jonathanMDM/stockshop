@@ -123,25 +123,29 @@ class ProductController extends Controller
     }
 
     public function viewProducts(){
+        $products = $this->modelProduct->getProducts();
         require APP .'view/_templates/header.php';
         require APP .'view/sells/viewProducts.php';
         require APP .'view/_templates/footer.php';
     }
 
     public function shopCar(){
+        $products = $this->modelProduct->getProducts();
         require APP .'view/_templates/header.php';
         require APP .'view/sells/shopCar.php';
         require APP .'view/_templates/footer.php'; 
     }
 
     public function viewProductsUsers()
-{
-    $products = $this->modelProduct->getProducts();
-    require APP . 'view/sells/viewProductsUsers.php';
-}
-    
+    {
+        $products = $this->modelProduct->getProducts();
+        $categories = $this->modelCategory->getCategories();
+        require APP . 'view/sells/viewProductsUsers.php';
+    }
+        
     
     public function shopCarUser(){
+        $categories = $this->modelCategory->getCategories();
         $products = $this->modelProduct->getProducts();
         require APP .'view/sells/shopCarUsers.php';
     }
