@@ -134,10 +134,12 @@ class ProductController extends Controller
         require APP .'view/_templates/footer.php'; 
     }
 
-
-    public function viewProductsUsers(){
-        require APP .'view/sells/viewProductsUsers.php';
-    }
+    public function viewProductsUsers()
+{
+    $products = $this->modelProduct->getProducts();
+    require APP . 'view/sells/viewProductsUsers.php';
+}
+    
     
     public function shopCarUser(){
         require APP .'view/sells/shopCarUsers.php';
