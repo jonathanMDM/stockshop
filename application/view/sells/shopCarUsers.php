@@ -46,7 +46,7 @@
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
                 <?php foreach ($products as $product): ?>
-                    <img height= "200px" width = "200px" src="data:image/jpg; base64,<?php echo base64_encode($product['productImg']);?>" alt = "No tiene Imagen">
+                    <img height= "200px" width = "200px" src="data:image/jpg; base64," name="txtProductImgView" id="txtProductImgView"alt = "No tiene Imagen">
                     <div class="col-md-6">
                         <div class="small mb-1">Ref:<?php echo $product['idProduct'];?></div>
                         <h1 class="display-5 fw-bolder"><?php echo $product['ProductName']; ?></h1>

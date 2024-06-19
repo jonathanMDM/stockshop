@@ -85,4 +85,19 @@ class mdlProducts
         $query->bindParam(1, $id);
         return $query->execute();
     }
+
+    public function showProduct()
+    {
+        $sql = "SELECT products SET productImg = ?, ProductName = ?, Description = ?, Price = ?, Stock = ?, idCategory = ? WHERE idProduct = ?";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute([
+            $this->productImg,
+            $this->ProductName,
+            $this->Description,
+            $this->Price,
+            $this->Stock,
+            $this->idCategory,
+            $this->idProduct
+        ]);
+    }
 }

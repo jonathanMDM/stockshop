@@ -54,28 +54,24 @@
             </div>
         </header>
         <!-- Section-->
+        <form method="post">
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <?php foreach ($products as $product): ?>
                         <div class="col mb-5">
                             <div class="card h-100">
-                                <!-- Product image-->
                                 <img height= "200px" width = "200px" src="data:image/jpg; base64,<?php echo base64_encode($product['productImg']);?>" alt = "No tiene Imagen">
-                                <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                     <p>Ref: <?php echo $product['idProduct'];?></p>
-                                        <!-- Product name-->
                                         <h4 class="fw-bolder"><?php echo $product['ProductName']; ?></h4>
                                         <p><?php echo $product['Description']; ?></p>
-                                        <!-- Product price-->
                                         <h6><?php echo $product['Price']; ?>$</h6>
                                     </div>
                                 </div>
-                                <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" name="btnShop">View Product</a></div>
+                                    <button type="submit" name="btnShop" class="btn btn-outline-dark" onclick="showProduct('<?php echo $product['idProduct'];?>')"><i class="fa fa-cart-plus" ></i>View Product</button>
                                 </div>
                             </div>
                         </div>
@@ -83,6 +79,8 @@
                 </div>
             </div>
         </section>
+        </form> 
+        
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; StockShop 2024</p></div>
