@@ -40,7 +40,7 @@ class ProductController extends Controller
             $this->modelProduct->__SET('Price', $_POST['txtPrice']);
             $this->modelProduct->__SET('Stock', $_POST['txtStock']);
             $this->modelProduct->__SET('idCategory', $_POST['selCategory']);
-            
+            $this->modelProduct->__SET('productImg', $_POST['txtProductImg']);
 
             $result = $this->modelProduct->saveProduct();
 
@@ -145,8 +145,18 @@ class ProductController extends Controller
         
     
     public function shopCarUser(){
-        $categories = $this->modelCategory->getCategories();
-        $products = $this->modelProduct->getProducts();
+        if(isset($_POST['btnShop'])){
+            $this->modelProduct->__SET('productImg', $_POST['txtProductImgView']);
+            $this->modelProduct->__SET('idProduct', $_POST['txtIdProductView']);
+            $this->modelProduct->__SET('ProductName', $_POST['txtProductNameView']);
+            $this->modelProduct->__SET('Description', $_POST['txtDescriptionView']);
+            $this->modelProduct->__SET('Price', $_POST['txtPriceView']);
+            $this->modelProduct->__SET('Stock', $_POST['txtStockView']);
+
+            $product = $this->modelProduct->getProductId($_POST['id']);
+            $categories = $this->modelCategory->getCategories();
+
         require APP .'view/sells/shopCarUsers.php';
+        }
     }
 }
