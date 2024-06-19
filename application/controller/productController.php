@@ -141,24 +141,18 @@ class ProductController extends Controller
         $products = $this->modelProduct->getProducts();
         $categories = $this->modelCategory->getCategories();
         require APP . 'view/sells/viewProductsUsers.php';
+        require APP . 'view/sells/shopCarUsers.php';
     }
         
     
-    public function shopCarUser(){
-        if(isset($_POST['btnShop'])){
-            $this->modelProduct->__SET('productImg', $_POST['txtProductImgView']);
-            $this->modelProduct->__SET('ProductName', $_POST['txtProductNameView']);
-            $this->modelProduct->__SET('Description', $_POST['txtDescriptionView']);
-            $this->modelProduct->__SET('Price', $_POST['txtPriceView']);
-            $this->modelProduct->__SET('Stock', $_POST['txtStockView']);
-            $this->modelProduct->__SET('idCategory', $_POST['txtIdCategoryView']);
-            $this->modelProduct->__SET('idProduct', $_POST['txtIdProductView']);
-
-            $result = $this->modelProduct->showProduct();
-        }
-        $products = $this->modelProduct->getProductId($_POST['id']);
-        $categories = $this->modelCategory->getCategories();
-
-        require APP .'view/sells/shopCarUsers.php';
+    public function shopCarUser() {
+        if (isset($_POST['id'])) {
+            $product = $this->modelProduct->getProductId($_POST['id']);
+            echo json_encode($product[0]);  // Asegúrate de devolver solo el primer elemento, ya que getProductId devuelve un array.
+            return;
+        }    
+        $products = $this->modelProduct->getProducts();
+        require APP . 'view/sells/shopCarUsers.php';
     }
+    
 }
