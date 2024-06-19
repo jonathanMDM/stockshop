@@ -40,7 +40,7 @@ class ProductController extends Controller
             $this->modelProduct->__SET('Price', $_POST['txtPrice']);
             $this->modelProduct->__SET('Stock', $_POST['txtStock']);
             $this->modelProduct->__SET('idCategory', $_POST['selCategory']);
-            $this->modelProduct->__SET('productImg', $_POST['txtProductImg']);
+            $this->modelProduct->__SET("productImg", file_get_contents($_FILES['txtProductImg']["tmp_name"]));
 
             $result = $this->modelProduct->saveProduct();
 
