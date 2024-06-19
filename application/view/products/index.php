@@ -69,7 +69,7 @@
             </div>
             <div class="modal-body">
                 <form method="post" action="<?php echo URL; ?>ProductController/updateProduct">
-                    <input type="hidden" name="txtIdProduct" id="txtIdProduct">
+                    <input type="text" name="txtIdProduct" id="txtIdProduct">
 
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Product Name:<span class="required">*</span></label>

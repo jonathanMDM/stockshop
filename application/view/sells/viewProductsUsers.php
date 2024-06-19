@@ -58,7 +58,7 @@
                 <?php foreach ($products as $product): ?>
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img height= "200px" width = "200px" src="data:image/jpg; base64,<?php echo base64_encode($product['productImg']);?>" alt = "No tiene Imagen">
+                            <img height= "200px" width = "200px" src="data:image/jpg; base64" alt = "No tiene Imagen">
                             <div class="card-body p-4">
                                 <div class="text-center">
                                 <p>Ref: <?php echo $product['idProduct'];?></p>

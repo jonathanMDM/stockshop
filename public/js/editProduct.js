@@ -1,7 +1,7 @@
 
 function dataProduct(id) {
     $.ajax({
-        url: url + "ProductController/dataProduct",
+        url: url + "productController/dataProduct",
         type: "post",
         dataType: "json",
         data: { 'id': id }
