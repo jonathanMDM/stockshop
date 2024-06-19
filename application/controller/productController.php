@@ -147,16 +147,18 @@ class ProductController extends Controller
     public function shopCarUser(){
         if(isset($_POST['btnShop'])){
             $this->modelProduct->__SET('productImg', $_POST['txtProductImgView']);
-            $this->modelProduct->__SET('idProduct', $_POST['txtIdProductView']);
             $this->modelProduct->__SET('ProductName', $_POST['txtProductNameView']);
             $this->modelProduct->__SET('Description', $_POST['txtDescriptionView']);
             $this->modelProduct->__SET('Price', $_POST['txtPriceView']);
             $this->modelProduct->__SET('Stock', $_POST['txtStockView']);
+            $this->modelProduct->__SET('idCategory', $_POST['txtIdCategoryView']);
+            $this->modelProduct->__SET('idProduct', $_POST['txtIdProductView']);
 
-            $product = $this->modelProduct->getProductId($_POST['id']);
-            $categories = $this->modelCategory->getCategories();
+            $result = $this->modelProduct->showProduct();
+        }
+        $products = $this->modelProduct->getProductId($_POST['id']);
+        $categories = $this->modelCategory->getCategories();
 
         require APP .'view/sells/shopCarUsers.php';
-        }
     }
 }
